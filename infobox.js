@@ -1,8 +1,8 @@
 //MUST HAVE - CREATE A TEMPLATE TAG
-var template_comp = document.createElement("template"); //<template> </template> RULE
+var template_info = document.createElement("template"); //<template> </template> RULE
 
 //To-do - CREATE THE UI HERE!
-template_comp.innerHTML = `
+template_info.innerHTML = `
 
 <style> 
 #innerTextOutput {
@@ -31,14 +31,8 @@ template_comp.innerHTML = `
 
 </style>
 
+<body>
 
-<p id="contain">
- 
-
-  <span style="display:none">The year is 2022. Vancouver is regarded as one of the most sought-after city's to live in. Yet some Vancouver youth are still forced to live on the street despite residing in a modern city.  Homelessness is an issue that is growing throughout the world. Follow our fictional youth "Kevin" as he navigates the often ignored segment of our society.</span>
-</p>
-
-<textarea id="textContentOutput" rows="6" cols="30" readonly>...</textarea>
 
 
 
@@ -69,16 +63,18 @@ class TheInfo extends HTMLElement {
 
     //MUST HAVE - FUNCTION THAT RUNS AFTER IT'S CONNECTED
     connectedCallback(){
-        this.shadowRoot.appendChild(template_comp.content.cloneNode(true)); //use the template to make a clone
-    }
+        this.shadowRoot.appendChild(template_info.content.cloneNode(true)); //use the template to make a clone
+        var textContentOutput = this.shadowRoot.getElementById("textContentOutput");
+        var innerTextLong = this.shadowRoot.getElementById("innerTextOutput");
+       
+     
+       
+      }
+
 
     //To-do - CREATE THE FUNCTIONALITIES HERE!
-}   
-const textContentOutput = document.getElementById("textContentOutput");
-const innerTextLong = document.getElementById("innerTextOutput");
-
-textContentOutput.value = contain.textContent;
-innerTextOutput.value = contain.innerText;
+   
+  }
 
 //MUST HAVE - define the tag for the custom elements
-customElements.define("info", TheInfo)
+customElements.define("the-info", TheInfo)
